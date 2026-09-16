@@ -1,0 +1,20 @@
+x = int(input())
+if x < 0 and x % 2 != 0:
+    print("число отрицательное и не четное")
+else:
+    print("число не отрицательное и не четное")
+if 1 <= x <= 100:
+    print("входит в диапазон")
+else:
+    print("не входит в диапазон")
+if 1 <= x <= 100:
+    print("входит в диапазон")
+else:
+    print("не входит в диапазон")
+a = int(input())
+b = int(input())
+c = int(input())
+if a > 0 and b > 0 and c >0 and (a + b > c) and (a+c>b) and (b+c>a):
+    print("треугольник существует")
+else:
+    print("не существет")

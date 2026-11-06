@@ -1,0 +1,27 @@
+def dirReduc(arr):
+    opposites = {
+        "N": "S",
+        "S": "N",
+        "E": "W",
+        "W": "E"
+    }
+    way = []
+    for direction in arr:
+        # Приводим к верхнему регистру
+        direction = direction.upper()
+        if way and opposites[direction] == way[-1]:
+            # Удаляем последнее направление
+            way.pop()
+        else:
+            # Иначе добавляем текущее направление в путь
+            way.append(direction)
+    return way
+if __name__ == "__main__":
+    print("Введите направления через запятую (N, S, E, W)")
+    user_input = input("> ").strip()
+    if user_input == "":
+        data = []
+    else:
+        data = [x.strip() for x in user_input.split(',') if x.strip() != '']
+    result = dirReduc(data)
+    print(f"Результат (сокращенный путь): {result}")

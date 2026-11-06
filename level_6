@@ -1,0 +1,24 @@
+def up_array(arr):
+    # Если массив пустой
+    if not arr:
+        return None
+    # Проверяем каждый элемент: он должен быть >= 0 и <= 9
+    for num in arr:
+        if num < 0 or num > 9:
+            return None
+    # Превращаем массив цифр в строку, затем в целое число
+    number_str = "".join(map(str, arr))
+    number_int = int(number_str)
+    result_int = number_int + 1
+    # Превращаем обратно в массив цифр
+    result_arr = [int(digit) for digit in str(result_int)]
+    return result_arr
+if __name__ == "__main__":
+    print("Введите массив цифр через запятую")
+    user_input = input("> ").strip()
+    if user_input == "":
+        data = []
+    else:
+            data = [int(x.strip()) for x in user_input.split(',')]
+    result = up_array(data)
+    print(f"Результат: {result}")

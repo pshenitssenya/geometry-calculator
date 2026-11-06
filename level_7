@@ -1,0 +1,17 @@
+def solution(arr):
+    if not arr:
+        return []
+    return sorted(arr, key=int)
+print("Введите массив чисел через запятую")
+user_input = input("> ").strip()
+if user_input.lower() == 'null' or user_input == '':
+    data = None
+else:
+    try:
+        data = [int(x.strip()) for x in user_input.split(',') if x.strip() != '']
+    except ValueError:
+        print("Ошибка: нужно вводить только числа через запятую.")
+        data = None
+if data is not None or user_input.lower() == 'null' or user_input == '':
+    result = solution(data)
+    print(f"Результат: {result}")

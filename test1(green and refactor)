@@ -1,0 +1,22 @@
+def run_length_encode(lst):
+    if not lst:
+        return []
+    result = []
+    current_element = lst[0]
+    count = 1
+    for element in lst[1:]:
+        if element == current_element:
+            count += 1
+        else:
+            result.append((current_element, count))
+            current_element = element
+            count = 1
+    result.append((current_element, count))
+    return result
+
+
+
+# refactor
+from itertools import groupby
+def run_length_encode(lst):
+    return [(key, len(list(group))) for key, group in groupby(lst)]

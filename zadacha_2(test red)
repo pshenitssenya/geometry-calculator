@@ -1,0 +1,24 @@
+import pytest
+from task2 import longest_common_prefix
+def test_longest_common_prefix_standard_case():
+    strings = ["flower", "flow", "flight"]
+    result = longest_common_prefix(strings)
+    assert result == "fl"
+def test_longest_common_prefix_no_common_prefix():
+    strings = ["dog", "racecar"]
+    result = longest_common_prefix(strings)
+    assert result == ""
+def test_longest_common_prefix_empty_list():
+    strings = []
+    result = longest_common_prefix(strings)
+    assert result == ""
+def test_longest_common_prefix_single_string():
+    strings = ["a"]
+    result = longest_common_prefix(strings)
+    assert result == "a"
+def test_longest_common_prefix_does_not_mutate_input():
+    strings = ["flower", "flow"]
+    original_copy = strings.copy()
+    longest_common_prefix(strings)
+    assert strings == original_copy
+
